@@ -3,20 +3,20 @@ import 'package:provider/provider.dart';
 import '../a_Database/todb.dart';
 
 class DetailScreen extends StatelessWidget {
-  static const routeName = '/product-detail';
+  static const routeName = '/meal-detail';
 
   @override
   Widget build(BuildContext context) {
     final mealID =
         ModalRoute.of(context).settings.arguments as String; // is the id!
-    final loadedProduct = Provider.of<ToDB>(
+    final loadedMeal = Provider.of<ToDB>(
       context,
       listen: false,
     ).findById(mealID);
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(loadedProduct.title),
+        title: Text(loadedMeal.title),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -25,7 +25,7 @@ class DetailScreen extends StatelessWidget {
               height: 300,
               width: double.infinity,
               child: Image.network(
-                loadedProduct.imageUrl,
+                loadedMeal.imageUrl,
                 fit: BoxFit.cover,
               ),
             ),
@@ -38,7 +38,7 @@ class DetailScreen extends StatelessWidget {
               padding: EdgeInsets.symmetric(horizontal: 10),
               width: double.infinity,
               child: Text(
-                loadedProduct.description,
+                loadedMeal.description,
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 15,
@@ -51,7 +51,16 @@ class DetailScreen extends StatelessWidget {
               padding: EdgeInsets.symmetric(horizontal: 10),
               width: double.infinity,
               child: Text(
-                loadedProduct.steps,
+                loadedMeal.categorie.toString(),
+                textAlign: TextAlign.center,
+                softWrap: true,
+              ),
+            ),
+            Container(
+              padding: EdgeInsets.symmetric(horizontal: 10),
+              width: double.infinity,
+              child: Text(
+                loadedMeal.steps,
                 textAlign: TextAlign.left,
                 softWrap: true,
               ),

@@ -17,6 +17,7 @@ dependencies:
   http: ^0.12.2
   filter_list: 0.0.4
 
+
   cupertino_icons: ^0.1.2
 
 dev_dependencies:

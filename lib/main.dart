@@ -18,6 +18,7 @@ class MyApp extends StatelessWidget {
         ),
       ],
       child: MaterialApp(
+          debugShowCheckedModeBanner: false,
           title: 'Cook Together',
           theme: ThemeData(
             primarySwatch: Colors.purple,

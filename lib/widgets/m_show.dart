@@ -23,7 +23,7 @@ class MShow extends StatelessWidget {
           ),
         ),
         footer: GridTileBar(
-          backgroundColor: Colors.black87,
+          backgroundColor: Color.fromARGB(250, 247, 247, 0),
           leading: Consumer<Meal>(
             builder: (ctx, mealX, _) => IconButton(
               icon: Icon(
@@ -37,9 +37,11 @@ class MShow extends StatelessWidget {
           ),
           title: Text(
             mealX.title,
-            textAlign: TextAlign.center,
+            textAlign: TextAlign.left,
+            style: TextStyle(color: Colors.red, fontWeight: FontWeight.bold),
           ),
-          trailing: IconButton(
+          /*
+         trailing: IconButton(
             icon: Icon(
               Icons.add_location,
             ),
@@ -59,7 +61,7 @@ class MShow extends StatelessWidget {
               );
             },
             color: Theme.of(context).accentColor,
-          ),
+          ),  */
         ),
       ),
     );

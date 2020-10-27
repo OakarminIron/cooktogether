@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import '../models/http_exception.dart';
@@ -35,16 +36,16 @@ class ToDB with ChangeNotifier {
           isFavorite: jsonData['isFavorite'],
           imageUrl: jsonData['imageUrl'],
           steps: jsonData['steps'],
-          /*
           categorie: jsonData['categorie'],
-          categorie: jsonData['categorie'].map((s) => s as String).toList(),
+
+          /*
+         
           ingredients: jsonData['ingredients'],
           duration: jsonData['duration'],
           isVegetarian: jsonData['isVegetarian'],
           complexity: jsonData['complexity'],
           */
         ));
-        print('Fetched');
       });
       _meals = loadedMeals;
       notifyListeners();
@@ -64,6 +65,7 @@ class ToDB with ChangeNotifier {
           'isFavorite': addJsonMeal.isFavorite,
           'imageUrl': addJsonMeal.imageUrl,
           'steps': addJsonMeal.steps,
+          'categorie': addJsonMeal.categorie,
         }),
       );
       final newMeal = Meal(
@@ -73,6 +75,7 @@ class ToDB with ChangeNotifier {
         isFavorite: addJsonMeal.isFavorite,
         imageUrl: addJsonMeal.imageUrl,
         steps: addJsonMeal.steps,
+        categorie: addJsonMeal.categorie,
       );
       _meals.add(newMeal);
 
@@ -94,6 +97,7 @@ class ToDB with ChangeNotifier {
             'isFavorite': jsonUP.isFavorite,
             'imageUrl': jsonUP.imageUrl,
             'steps': jsonUP.steps,
+            'categorie': jsonUP.categorie,
           }));
       _meals[mealID] = jsonUP;
       notifyListeners();
