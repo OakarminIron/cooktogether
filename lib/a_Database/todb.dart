@@ -21,7 +21,7 @@ class ToDB with ChangeNotifier {
   }
 
   Future<void> fetchAndSetMeals() async {
-    const url = 'https://cooktogether-c28c6.firebaseio.com/meals.json';
+    const url = 'https://cooktogether-1d65e-default-rtdb.firebaseio.com/meals.json';
     try {
       final response = await http.get(url);
       final extractedData = json.decode(response.body) as Map<String, dynamic>;
@@ -55,7 +55,7 @@ class ToDB with ChangeNotifier {
   }
 
   Future<void> addMeal(Meal addJsonMeal) async {
-    const url = 'https://cooktogether-c28c6.firebaseio.com/meals.json';
+    const url = 'https://cooktogether-1d65e-default-rtdb.firebaseio.com/meals.json';
     try {
       final response = await http.post(
         url,
@@ -89,7 +89,7 @@ class ToDB with ChangeNotifier {
   Future<void> updateMeal(String id, Meal jsonUP) async {
     final mealID = _meals.indexWhere((prod) => prod.id == id);
     if (mealID >= 0) {
-      final url = 'https://cooktogether-c28c6.firebaseio.com/meals/$id.json';
+      final url = 'https://cooktogether-1d65e-default-rtdb.firebaseio.com/meals/$id.json';
       await http.patch(url,
           body: json.encode({
             'title': jsonUP.title,
@@ -107,7 +107,7 @@ class ToDB with ChangeNotifier {
   }
 
   Future<void> deleteMeal(String id) async {
-    final url = 'https://cooktogether-c28c6.firebaseio.com/meals/$id.json';
+    final url = 'https://cooktogether-1d65e-default-rtdb.firebaseio.com/meals/$id.json';
     final existingMealIndex = _meals.indexWhere((prod) => prod.id == id);
     var existingMeal = _meals[existingMealIndex];
     _meals.removeAt(existingMealIndex);
